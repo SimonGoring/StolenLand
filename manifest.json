@@ -1,0 +1,27 @@
+{
+  "name": "Unsettled Crowns",
+  "description": "This extension is designed to replace the term 'Crown Land' in webpages with 'Stolen Land' to reflect the reality of colonization.",
+  "version": "1.0",
+  "author": "Simon Goring",
+  "manifest_version": 3,
+  "action": {},
+  "permissions": [
+    "activeTab"
+  ],
+  "icons": {
+    "16": "src/logo/sl16.png",
+    "48": "src/logo/sl48.png",
+    "128": "src/logo/sl128.png"
+  },
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "run_at": "document_end",
+    "js": ["src/runner.js"]
+  }],
+  "background": {
+    "service_worker": "src/background.js"
+  }
+}
